@@ -63,10 +63,11 @@ with app.app_context():
         user=users[2],
         game=games[2]))
     db.session.add_all(reviews)
-
+    
     for g in games:
         r = rc(reviews)
         g.review = r
         reviews.remove(r)
-
+    
     db.session.commit()
+
